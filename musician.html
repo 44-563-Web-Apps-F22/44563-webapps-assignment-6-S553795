@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <Title>Muscians Vachaspathi Jonnabhatla</Title>
-<body>
+<body style="background-color:grey;">
 <h1>Musicians guess by Vachaspathi Jonnabhatla</h1>
 <h2></h2>
 
@@ -22,6 +22,7 @@
 <script> 
 var correct=0
 var wrong=0
+var count = 0
 function checkGuess(){
     console.log("Getting form values")
     name = document.getElementById("form1_name").value
@@ -30,16 +31,29 @@ function checkGuess(){
     if(name==guess)
     {
         correct++
+        count = 0
         alert("you got it right")
         document.getElementById("result").innerHTML="correct num="+correct+" "+"Wrong num="+wrong
     }
     else
     {
         wrong++
+        count++
         alert("wrong musician")
         document.getElementById("result").innerHTML="correct num="+correct+" "+"Wrong num="+wrong
+
+        if(count>=3){
+        if(wrong>=3){
+        gameover()
+        }
+
+     }
     }
 }
+function gameover(){
+        alert("Sorry,game over")
+    }
+
 </script>
 
 
